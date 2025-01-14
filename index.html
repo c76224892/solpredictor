@@ -91,7 +91,21 @@
       text-shadow: 0 0 5px #00ff00;
       margin-bottom: 20px;
     }
-    h1 { font-size: 2rem; text-align: center; margin-bottom: 40px; }
+
+    /* 
+      UPDATED: Make the title bigger and add a pulse animation 
+    */
+    h1 {
+      font-size: 3.5rem;        /* Bigger title */
+      text-align: center;
+      margin-bottom: 40px;
+      animation: titlePulse 2s infinite alternate; /* Pulse animation */
+    }
+    @keyframes titlePulse {
+      0%   { transform: scale(1); }
+      100% { transform: scale(1.08); }
+    }
+
     h2 { font-size: 1.5rem; }
 
     form, #fakeMetrics, #resolution, #devResolution {
