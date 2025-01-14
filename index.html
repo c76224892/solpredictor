@@ -17,17 +17,18 @@
       color: #00ff00;
       overflow: hidden;
       position: relative;
-      padding: 20px; /* Padding around content */
+      padding: 20px; /* Space for content margins */
     }
 
     /* Canvas Background with Margins */
     #matrix {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      right: 20px;
-      bottom: 20px;
-      z-index: -3; /* Behind all content */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: calc(100% - 40px);  /* 20px margin on left and right */
+      height: calc(100% - 40px); /* 20px margin on top and bottom */
+      margin: 20px;              /* Margin around canvas */
+      z-index: -3;               /* Behind all content */
       background: #000;
     }
 
@@ -216,9 +217,9 @@
     const ctx = canvas.getContext('2d');
 
     function setCanvasSize() {
-      // Adjust canvas size based on margins
-      canvas.width = window.innerWidth - 40;  // 20px margin on left and right
-      canvas.height = window.innerHeight - 40; // 20px margin on top and bottom
+      // Use CSS-defined size which already includes margins
+      canvas.width = canvas.clientWidth;
+      canvas.height = canvas.clientHeight;
     }
     setCanvasSize();
 
@@ -408,5 +409,3 @@
   </script>
 </body>
 </html>
-
-
