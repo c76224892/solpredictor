@@ -13,8 +13,9 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Share Tech Mono', monospace;
-      background: #000;
-      color: #00ff00;
+      /* Changed black to a very dark purple */
+      background: #0B0012; 
+      color: #D689FF; /* Light purple text */
       overflow: hidden;
       position: relative;
       padding: 20px; /* Space for content margins */
@@ -25,11 +26,12 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: calc(100% - 40px);  /* 20px margin on left and right */
-      height: calc(100% - 40px); /* 20px margin on top and bottom */
-      margin: 20px;              /* Margin around canvas */
-      z-index: -3;               /* Behind all content */
-      background: #000;
+      /* The margins remain, but background is slightly tweaked for purple aesthetic */
+      width: calc(100% - 40px);
+      height: calc(100% - 40px);
+      margin: 20px;
+      z-index: -3;
+      background: #0B0012; 
     }
 
     /* Glitch Background Effect (Optional) */
@@ -57,13 +59,15 @@
 
     /* Container styling */
     .section-container {
-      background: rgba(0, 0, 0, 0.85);
-      border: 1px solid #00ff00;
+      background: rgba(11, 0, 18, 0.85);
+      /* Purple border instead of green */
+      border: 1px solid #A900FF;
       padding: 20px;
       margin-bottom: 40px;
-      box-shadow: 0 0 15px #00ff00;
+      /* Purple glow */
+      box-shadow: 0 0 15px #A900FF;
       position: relative;
-      z-index: 1; /* Above canvas */
+      z-index: 1; 
     }
     .section-container::before {
       content: "";
@@ -73,8 +77,8 @@
       background: linear-gradient(
         0deg,
         transparent 70%,
-        rgba(0,255,0,0.05) 70%,
-        rgba(0,255,0,0.05) 100%
+        rgba(169,0,255,0.05) 70%,
+        rgba(169,0,255,0.05) 100%
       );
       background-size: 100% 5px;
       animation: scanline 2s linear infinite;
@@ -87,19 +91,18 @@
 
     h1, h2 {
       font-family: 'Orbitron', sans-serif;
-      color: #00ff00;
-      text-shadow: 0 0 5px #00ff00;
+      /* Purple text glow */
+      color: #B675FF;
+      text-shadow: 0 0 5px #B675FF;
       margin-bottom: 20px;
     }
 
-    /* 
-      UPDATED: Make the title bigger and add a pulse animation 
-    */
+    /* Larger pulsing title in purple */
     h1 {
-      font-size: 3.5rem;        /* Bigger title */
+      font-size: 3.5rem;
       text-align: center;
       margin-bottom: 40px;
-      animation: titlePulse 2s infinite alternate; /* Pulse animation */
+      animation: titlePulse 2s infinite alternate;
     }
     @keyframes titlePulse {
       0%   { transform: scale(1); }
@@ -111,25 +114,30 @@
     form, #fakeMetrics, #resolution, #devResolution {
       margin-bottom: 20px;
     }
-    label { display: block; margin-top: 10px; color: #00ffea; }
+    label { 
+      display: block; 
+      margin-top: 10px; 
+      color: #CFAAFF;
+    }
     input, button {
       width: 100%;
       padding: 10px;
       margin-top: 5px;
-      border: 1px solid #00ff00;
-      background: #000;
-      color: #00ff00;
+      /* Purple text, blackish background, purple border */
+      border: 1px solid #A900FF;
+      background: #0B0012;
+      color: #D689FF;
       font-family: inherit;
     }
     input:focus, button:focus { outline: none; }
     button {
       cursor: pointer;
       margin-top: 20px;
-      background: #00ff00;
-      color: #000;
+      background: #A900FF; 
+      color: #fff;
       transition: background 0.3s;
     }
-    button:hover { background: #00cc00; }
+    button:hover { background: #9100DB; }
 
     .statistic { margin: 5px 0; }
     .statistic div { display: inline-block; }
@@ -149,7 +157,8 @@
     }
     .success { 
       color: #000;
-      background-color: #00ff00;
+      /* Purple success background */
+      background-color: #C266FF;
     }
     .warning { 
       color: #000;
@@ -248,10 +257,12 @@
     initializeMatrix();
 
     function drawMatrix() {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      // Use a purple-tinted fade instead of black
+      ctx.fillStyle = "rgba(11, 0, 18, 0.05)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = "#0F0";
+      // Purple matrix code
+      ctx.fillStyle = "#AA66FF";
       ctx.font = fontSize + "px monospace";
 
       for (let i = 0; i < drops.length; i++) {
@@ -406,8 +417,8 @@
         }
         resolutionDiv.innerHTML = `
           <p class="success flicker fade-in">✅ Recommended to Invest!</p>
-          <p class="fade-in" style="color:#FFFF00; font-weight:bold;">Probability of Success: <strong>${probability}%</strong></p>
-          <p class="fade-in" style="color:#FFFF00; font-weight:bold;">Expected Upside: <strong>${upside}x</strong></p>
+          <p class="fade-in" style="color:#FFBAFC; font-weight:bold;">Probability of Success: <strong>${probability}%</strong></p>
+          <p class="fade-in" style="color:#FFBAFC; font-weight:bold;">Expected Upside: <strong>${upside}x</strong></p>
           ${additionalAnalysis}
         `;
       }
@@ -415,7 +426,7 @@
       function displayDevAnalysis(socialLink) {
         devResolutionDiv.innerHTML = `
           <p class="fade-in">🔍 Analyzing the developer's history and social media at:</p>
-          <p class="fade-in" style="color:#FFFF00; font-weight:bold;"><strong>${socialLink}</strong></p>
+          <p class="fade-in" style="color:#FFBAFC; font-weight:bold;"><strong>${socialLink}</strong></p>
           <p class="fade-in">✅ Developer has a strong history and reliable social media presence.</p>
         `;
       }
